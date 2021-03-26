@@ -1,4 +1,4 @@
-# thef2e-hotel
+# TheF2E-Hotel
 
 ## Project setup
 ```

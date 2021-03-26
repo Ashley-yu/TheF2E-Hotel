@@ -1,0 +1,28 @@
+@mixin screen-md {
+  @media (max-width: 1904px) {
+    @content
+  }
+}
+
+@mixin screen-md {
+  @media (max-width: 1264px) {
+    @content
+  }
+}
+
+@mixin screen-sm {
+  @media (max-width: 960px) {
+    @content
+  }
+}
+
+@mixin screen-xs {
+  @media (max-width: 600px) {
+    @content
+  }
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,38 @@
+.banner {
+  .banner {
+    &-bg {
+      overflow: visible;
+    }
+
+    &-title {
+      font: Italic 4vw $font-family-rage;
+      letter-spacing: 10.4px;
+      white-space: nowrap;
+
+      @include screen-xs() {
+        white-space: pre-wrap;
+      }
+    }
+
+    &-second-title {
+      width: 2.8vw;
+      font: normal 2.8vw $font-family-mingstd;
+    }
+  }
+
+  .slide {
+    text-align: center;
+    font: Italic 2.1vw $font-family-rage;
+    letter-spacing: 4.32px;
+    opacity: 0.66;
+    margin-top: 6px;
+
+    &-icon {
+      transform: matrix(0, 1, -1, 0, 0, 0);
+      margin-top: -1vw;
+      span:first-child {
+        margin-right: -8px;
+      }
+    }
+  }
+}
