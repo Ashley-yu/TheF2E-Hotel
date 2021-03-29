@@ -5,16 +5,22 @@
       <v-divider vertical class="bg-secondary-color align-self-center footer-divider"></v-divider>
       <ul class="pl-0 ml-7 white-color font-size-xs">
         <li class="mb-3">
-          <v-icon dark size="15" class="mr-3">mdi-phone</v-icon>
-          <span>07-536-0000</span>
+          <a href="tel:+07-536-0000" class="d-flex align-center">
+            <v-icon dark size="15" class="mr-3">mdi-phone</v-icon>
+            <span>07-536-0000</span>
+          </a>
         </li>
         <li class="mb-3">
-          <v-icon dark size="15" class="mr-3">mdi-map-marker</v-icon>
-          <span>香港銅鑼灣興發街1號</span>
+          <a class="d-flex align-center">
+            <v-icon dark size="15" class="mr-3">mdi-map-marker</v-icon>
+            <span>香港銅鑼灣興發街1號</span>
+          </a>
         </li>
         <li>
-          <v-icon dark size="15" class="mr-3">mdi-instagram</v-icon>
-          <span>I_dont_wank_to_work</span>
+          <a class="d-flex align-center">
+            <v-icon dark size="15" class="mr-3">mdi-instagram</v-icon>
+            <span>I_dont_wank_to_work</span>
+          </a>
         </li>
       </ul>
     </v-container>
