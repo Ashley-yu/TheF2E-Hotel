@@ -1,11 +1,16 @@
 .banner {
+  margin: 46px 0;
+  @include screen-xs() {
+    margin: 0;
+  }
+
   .banner {
     &-bg {
       overflow: visible;
     }
 
     &-title {
-      font: Italic 4vw $font-family-rage;
+      font-size: 4vw;
       letter-spacing: 10.4px;
       white-space: nowrap;
 
@@ -22,7 +27,7 @@
 
   .slide {
     text-align: center;
-    font: Italic 2.1vw $font-family-rage;
+    font-size: 2.1vw;
     letter-spacing: 4.32px;
     opacity: 0.66;
     margin-top: 6px;

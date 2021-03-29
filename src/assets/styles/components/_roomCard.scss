@@ -1,0 +1,40 @@
+.room-card {
+  font-family: $font-family-base;
+
+  .card {
+    &-title {
+      letter-spacing: 4.16px;
+      writing-mode: vertical-rl;
+      text-orientation: sideways;
+      transform: rotate(-180deg);
+      text-align: right;
+    }
+
+    &-content {
+      min-height: 300px;
+    }
+
+    &-img {
+      width: 100%;
+      height: 300px;
+      border: 1px solid $secondary;
+    }
+
+    &-subtitle {
+      color: $primary;
+
+      div:nth-child(1) {
+        font-size: $font-size-xs;
+        margin-bottom: 9px;
+      }
+
+      div:nth-child(2) {
+        font-size: $font-size-md;
+      }
+    }
+
+    &-item {
+      min-height: 61px;
+    }
+  }
+}

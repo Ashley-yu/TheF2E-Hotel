@@ -16,11 +16,60 @@
   background-color: $primary;
 };
 .bg-primary-dark-color {
-  background-: $primary-dark;
+  background-color: $primary-dark;
 }
 .bg-primary-light-color {
-  background-: $primary-light;
+  background-color: $primary-light;
 }
 .bg-secondary-color {
-  background-: $secondary;
+  background-color: $secondary;
+}
+
+// font
+.font-rage {
+  font-family: $font-family-rage;
+}
+
+.font-size-xs {
+  font-size: $font-size-xs;
+}
+.font-size-sm {
+  font-size: $font-size-sm;
+}
+.font-size-base {
+  font-size: $font-size-base;
+}
+.font-size-md {
+  font-size: $font-size-md;
+}
+.font-size-lg {
+  font-size: $font-size-lg;
+}
+.font-size-xl {
+  font-size: $font-size-xl;
+}
+
+// border
+.border-bottom {
+  border-bottom: solid 1px $secondary;
+}
+
+// width
+.w-30 {
+  width: 30%;
+}
+.w-33 {
+  width: 33%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-70 {
+  width: 70%;
 }
