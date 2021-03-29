@@ -1,5 +1,24 @@
 <template>
-  <div>Footer</div>
+  <div class="bg-primary-dark-color py-7 mt-13 footer">
+    <v-container class="d-flex justify-end">
+      <v-img src="../assets/image/logo2.svg" max-width="57" max-height="54" class="mr-10"></v-img>
+      <v-divider vertical class="bg-secondary-color align-self-center footer-divider"></v-divider>
+      <ul class="pl-0 ml-7 white-color font-size-xs">
+        <li class="mb-3">
+          <v-icon dark size="15" class="mr-3">mdi-phone</v-icon>
+          <span>07-536-0000</span>
+        </li>
+        <li class="mb-3">
+          <v-icon dark size="15" class="mr-3">mdi-map-marker</v-icon>
+          <span>香港銅鑼灣興發街1號</span>
+        </li>
+        <li>
+          <v-icon dark size="15" class="mr-3">mdi-instagram</v-icon>
+          <span>I_dont_wank_to_work</span>
+        </li>
+      </ul>
+    </v-container>
+  </div>
 </template>
 
 <script>

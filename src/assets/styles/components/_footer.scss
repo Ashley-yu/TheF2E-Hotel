@@ -1,0 +1,10 @@
+.footer {
+  font-family: Segoe UI Regular, sans-serif;
+
+  .footer{
+    &-divider {
+      border-width: 1px;
+      height: 35px;
+    }
+  }
+}
