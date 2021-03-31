@@ -1,6 +1,6 @@
 <template>
-  <div class="text-center py-15 rooms">
-    <h2 class="mb-16 font-rage rooms-title">ROOMS</h2>
+  <div class="text-center py-8 py-md-15 rooms" id="rooms">
+    <h2 class="mb-8 mb-md-16 font-rage rooms-title">ROOMS</h2>
     <v-container>
       <v-row>
         <v-col cols="12" sm="6" lg="4" v-for="item in items" :key="item.id">

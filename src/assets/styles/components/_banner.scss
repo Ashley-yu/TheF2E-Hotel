@@ -10,11 +10,12 @@
     }
 
     &-title {
-      font-size: 4vw;
+      font-size: 5.35vw;
+      font-weight: normal;
       letter-spacing: 10.4px;
       white-space: nowrap;
 
-      @include screen-xs() {
+      @include screen-md() {
         white-space: pre-wrap;
       }
     }
@@ -31,6 +32,10 @@
     letter-spacing: 4.32px;
     opacity: 0.66;
     margin-top: 6px;
+    outline: none;
+    &:hover {
+      color: $primary-dark;
+    }
 
     &-icon {
       transform: matrix(0, 1, -1, 0, 0, 0);

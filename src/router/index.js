@@ -3,6 +3,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+const mixProps = function () {
+  return route => {
+    return Object.assign({}, route.params, route.query)
+  }
+}
+
 const routes = [
   {
     path: '*',
@@ -16,6 +22,7 @@ const routes = [
   {
     path: '/reservation',
     name: 'Reservation',
+    props: mixProps(),
     component: () => import('../views/Reservation.vue')
   },
 ]

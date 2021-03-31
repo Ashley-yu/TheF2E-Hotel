@@ -1,49 +1,54 @@
 <template>
   <div class="d-flex justify-space-around mx-5 mb-13 room-card">
     <div class="mr-2 card-title">{{ room.name }}</div>
-    <v-card class="pa-2 card-content">
-      <v-img :src="imgUrl" class="card-img"></v-img>
-      <ul class="pa-0">
-        <li class="d-flex justify-space-between pa-3 border-bottom">
-          <div class="card-subtitle">
-            <div>人數</div>
-            <div>
-              {{
-                room.descriptionShort
-                    ? room.descriptionShort.GuestMax ===
-                    room.descriptionShort.GuestMin
-                    ? room.descriptionShort.GuestMin
-                    : `${room.descriptionShort.GuestMin}~${room.descriptionShort.GuestMax}`
-                    : ""
-              }}
+    <v-hover v-slot="{ hover }">
+      <v-card class="pa-2 card-content"
+              @click="gotoReservation"
+              :elevation="hover ? 8 : 2"
+              :class="{ 'on-hover': hover }">
+        <v-img :src="imgUrl" class="card-img"></v-img>
+        <ul class="pa-0">
+          <li class="d-flex justify-space-between pa-3 border-bottom">
+            <div class="card-subtitle">
+              <div>人數</div>
+              <div>
+                {{
+                  room.descriptionShort
+                      ? room.descriptionShort.GuestMax ===
+                      room.descriptionShort.GuestMin
+                      ? room.descriptionShort.GuestMin
+                      : `${room.descriptionShort.GuestMin}~${room.descriptionShort.GuestMax}`
+                      : ""
+                }}
+              </div>
             </div>
-          </div>
-          <div class="card-subtitle">
-            <div>床</div>
-            <div>
-              {{ room.descriptionShort ? room.descriptionShort.Bed.toString() : "" }}
+            <div class="card-subtitle">
+              <div>床</div>
+              <div>
+                {{ room.descriptionShort ? room.descriptionShort.Bed.toString() : "" }}
+              </div>
             </div>
-          </div>
-          <div class="card-subtitle">
-            <div>大小</div>
-            <div>
-              {{ room.descriptionShort ? room.descriptionShort.Footage : "" }}<span>m<sup>2</sup></span>
+            <div class="card-subtitle">
+              <div>大小</div>
+              <div>
+                {{ room.descriptionShort ? room.descriptionShort.Footage : "" }}<span>m<sup>2</sup></span>
+              </div>
             </div>
-          </div>
-        </li>
-        <li class="pa-3 border-bottom font-size-sm card-item">
-          {{ roomAmenities }}
-        </li>
-        <li class="d-flex align-center pa-3">
-          <div class="w-33 font-size-sm">假日</div>
-          <div class="w-33 font-size-md primary-light-color">${{ room.holidayPrice }}</div>
-        </li>
-        <li class="d-flex align-center bg-secondary-color px-3 py-5">
-          <div class="w-33 font-size-sm">平日</div>
-          <div class="w-33 font-size-xl">${{ room.normalDayPrice }}</div>
-        </li>
-      </ul>
-    </v-card>
+          </li>
+          <li class="pa-3 border-bottom font-size-sm card-item">
+            {{ roomAmenities }}
+          </li>
+          <li class="d-flex align-center pa-3">
+            <div class="w-33 font-size-sm">假日</div>
+            <div class="w-33 font-size-md primary-light-color">${{ room.holidayPrice }}</div>
+          </li>
+          <li class="d-flex align-center bg-secondary-color px-3 py-5">
+            <div class="w-33 font-size-sm">平日</div>
+            <div class="w-33 font-size-xl">${{ room.normalDayPrice }}</div>
+          </li>
+        </ul>
+      </v-card>
+    </v-hover>
   </div>
 </template>
 
@@ -64,6 +69,9 @@ export default {
     room: {},
   }),
   methods: {
+    gotoReservation() {
+      this.$router.push({ name: "Reservation", params: { room: this.room } });
+    },
     getRoomData() {
       this.$http({
         method: "get",
@@ -81,7 +89,7 @@ export default {
           .catch((err) => {
             console.log(err);
           });
-    }
+    },
   },
   computed: {
     roomAmenities() {
