@@ -4,7 +4,7 @@
     <v-container>
       <v-row class="flex-column-reverse flex-md-row">
         <v-col cols="12" md="6">
-          <ReservationCard />
+          <ReservationCard :roomId="room.id"/>
         </v-col>
         <v-col cols="12" md="6">
           <ReservationInfo  :room="room"/>
