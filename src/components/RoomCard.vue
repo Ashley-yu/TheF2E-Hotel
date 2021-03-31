@@ -6,7 +6,7 @@
               @click="gotoReservation"
               :elevation="hover ? 8 : 2"
               :class="{ 'on-hover': hover }">
-        <v-img :src="imgUrl" class="card-img"></v-img>
+        <v-img :src="imageUrl" class="card-img"></v-img>
         <ul class="pa-0">
           <li class="d-flex justify-space-between pa-3 border-bottom">
             <div class="card-subtitle">
@@ -60,7 +60,7 @@ export default {
       type: String,
       default: "",
     },
-    imgUrl: {
+    imageUrl: {
       type: String,
       default: "",
     },
@@ -70,7 +70,7 @@ export default {
   }),
   methods: {
     gotoReservation() {
-      this.$router.push({ name: "Reservation", params: { room: this.room } });
+      this.$router.push({ name: "Reservation", params: { room: this.room }});
     },
     getRoomData() {
       this.$http({

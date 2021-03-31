@@ -6,7 +6,7 @@
         <v-col cols="12" sm="6" lg="4" v-for="item in items" :key="item.id">
           <RoomCard
               :uid="item.id"
-              :imgUrl="item.imageUrl"
+              :imageUrl="item.imageUrl"
           />
         </v-col>
       </v-row>

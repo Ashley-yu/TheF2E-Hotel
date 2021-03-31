@@ -1,0 +1,55 @@
+.reservation {
+  &-img {
+    position: relative;
+  }
+
+  &-title {
+    position: absolute;
+    right: 0;
+    bottom: -54px;
+    font-size: 110px;
+    font-weight: normal;
+    letter-spacing: 17.6px;
+  }
+
+  &-card {
+    font-family: Segoe UI Regular, sans-serif;
+    margin-top: 62px;
+    border: 1px solid $primary-light;
+
+    @include screen-sm {
+      margin-bottom: 60px;
+    }
+
+    .v-input {
+      border-radius: 0;
+
+      .v-input__slot {
+        border-color: $primary-light !important;
+        padding: 0 20px !important;
+      }
+    }
+  }
+
+  &-confirm {
+    .v-btn__content {
+      font-size: 20px;
+    }
+  }
+
+  &-info {
+    font-family: $font-family-base;
+    margin-bottom: 160px;
+
+    @include screen-sm {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-subtitle {
+    color: #707070;
+    font-weight: normal;
+    letter-spacing: 4.16px;
+    margin-top: 116px;
+  }
+}
