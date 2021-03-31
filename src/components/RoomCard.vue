@@ -31,16 +31,16 @@
             </div>
           </div>
         </li>
-        <li class="pa-3 border-bottom font-size-sm primary-color card-item">
+        <li class="pa-3 border-bottom font-size-sm card-item">
           {{ roomAmenities }}
         </li>
         <li class="d-flex align-center pa-3">
-          <div class="w-33 font-size-sm primary-color">假日</div>
+          <div class="w-33 font-size-sm">假日</div>
           <div class="w-33 font-size-md primary-light-color">${{ room.holidayPrice }}</div>
         </li>
         <li class="d-flex align-center bg-secondary-color px-3 py-5">
-          <div class="w-33 font-size-sm primary-color">平日</div>
-          <div class="w-33 font-size-xl primary-color">${{ room.normalDayPrice }}</div>
+          <div class="w-33 font-size-sm">平日</div>
+          <div class="w-33 font-size-xl">${{ room.normalDayPrice }}</div>
         </li>
       </ul>
     </v-card>

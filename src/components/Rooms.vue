@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center primary-color py-15 rooms">
+  <div class="text-center py-15 rooms">
     <h2 class="mb-16 font-rage rooms-title">ROOMS</h2>
     <v-container>
       <v-row>

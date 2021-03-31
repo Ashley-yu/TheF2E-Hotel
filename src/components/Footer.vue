@@ -3,23 +3,23 @@
     <v-container class="d-flex justify-end">
       <v-img src="../assets/image/logo2.svg" max-width="57" max-height="54" class="mr-10"></v-img>
       <v-divider vertical class="bg-secondary-color align-self-center footer-divider"></v-divider>
-      <ul class="pl-0 ml-7 white-color font-size-xs">
+      <ul class="pl-0 ml-7 font-size-xs">
         <li class="mb-3">
           <a href="tel:+07-536-0000" class="d-flex align-center">
             <v-icon dark size="15" class="mr-3">mdi-phone</v-icon>
-            <span>07-536-0000</span>
+            <span class="white-color">07-536-0000</span>
           </a>
         </li>
         <li class="mb-3">
           <a class="d-flex align-center">
             <v-icon dark size="15" class="mr-3">mdi-map-marker</v-icon>
-            <span>香港銅鑼灣興發街1號</span>
+            <span class="white-color">香港銅鑼灣興發街1號</span>
           </a>
         </li>
         <li>
           <a class="d-flex align-center">
             <v-icon dark size="15" class="mr-3">mdi-instagram</v-icon>
-            <span>I_dont_wank_to_work</span>
+            <span class="white-color">I_dont_wank_to_work</span>
           </a>
         </li>
       </ul>
