@@ -63,9 +63,15 @@
           :rules="[(v) => !!v || '電話欄位必填']"
       ></v-text-field>
     </div>
+    <v-alert v-if="errMsg"
+             dense
+             text
+             type="error">
+      {{ errMsg }}
+    </v-alert>
     <div>
       <v-btn
-          color="#496146"
+          color="primary"
           dark
           block
           height="63"
@@ -74,9 +80,6 @@
         確定預定日期
       </v-btn>
     </div>
-    <v-alert v-if="errMsg" dense outlined type="error">
-      {{ errMsg }}
-    </v-alert>
   </v-form>
 </template>
 

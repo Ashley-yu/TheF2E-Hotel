@@ -13,7 +13,7 @@
         <h2 class="banner-second-title">不想－上班</h2>
       </v-col>
     </v-row>
-    <button class="font-rage font-italic slide" @click="slide">
+    <button class="font-rage font-italic primary-color slide" @click="slide">
       Slide
       <div class="slide-icon">
         <span>></span>

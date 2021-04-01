@@ -5,7 +5,7 @@
         <v-img src="../assets/image/logo2.svg" max-width="57" max-height="54" class="mr-10"></v-img>
         <p class="ma-0 mt-3 white-color font-size-xs footer-title">不想上班</p>
       </div>
-      <v-divider vertical class="bg-secondary-color align-self-center footer-divider"></v-divider>
+      <v-divider vertical class="secondary align-self-center footer-divider"></v-divider>
       <ul class="pl-0 ml-7 font-size-xs">
         <li class="mb-3">
           <a href="tel:+07-536-0000" class="d-flex align-center">

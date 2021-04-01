@@ -23,7 +23,7 @@
         {{ roomContent }}
       </li>
     </ul>
-    <div class="bg-secondary-color font-weight-bold text-center py-3 px-15 mb-8">
+    <div class="secondary primary-color font-weight-bold text-center py-3 px-15 mb-8">
       {{ roomAmenities }}
     </div>
     <div class="mx-6 mx-md-12 d-flex justify-space-between">
