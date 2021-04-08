@@ -26,21 +26,14 @@ export default {
   }),
   methods: {
     getData() {
-      this.$http({
-        method: "get",
-        headers: {
-          Accept: "application/json",
-          Authorization:
-              "Bearer HMUCvgjAVLxEmkUVN4mrwkiSXMalQyUxVc5umVG8TJAXxw3GazyzLd19XaGn",
-        },
-        url: "https://challenge.thef2e.com/api/thef2e2019/stage6/rooms",
-      })
-          .then((res) => {
+      this.$roomApi.GetRooms(
+          (res) => {
             this.items = res.data.items;
-          })
-          .catch((err) => {
+          },
+          (err) => {
             console.log(err);
-          });
+          },
+      );
     }
   },
   created() {

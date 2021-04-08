@@ -77,23 +77,16 @@ export default {
       this.$router.push('/reservation');
     },
     getRoomData() {
-      this.$http({
-        method: "get",
-        headers: {
-          Accept: "application/json",
-          Authorization:
-              "Bearer HMUCvgjAVLxEmkUVN4mrwkiSXMalQyUxVc5umVG8TJAXxw3GazyzLd19XaGn",
-        },
-        url:
-            "https://challenge.thef2e.com/api/thef2e2019/stage6/room/" + this.uid,
-      })
-          .then((res) => {
+      this.$roomApi.GetRoom(
+          this.uid,
+          (res) => {
             this.room = res.data.room[0];
             this.loading = false;
-          })
-          .catch((err) => {
+          },
+          (err) => {
             console.log(err);
-          });
+          },
+      );
     },
   },
   computed: {

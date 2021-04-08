@@ -146,27 +146,21 @@ export default {
           this.dates.reverse();
         }
 
-        this.$http({
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            Authorization: "Bearer HMUCvgjAVLxEmkUVN4mrwkiSXMalQyUxVc5umVG8TJAXxw3GazyzLd19XaGn",
-            "Content-Type": "application/json",
-          },
-          url: `https://challenge.thef2e.com/api/thef2e2019/stage6/room/${this.room.id}`,
-          data: JSON.stringify({
-            name: this.name,
-            tel: this.phone,
-            date: this.dates,
-          }),
-        })
-            .then((res) => {
+        this.$roomApi.PostRoom(
+            this.room.id,
+            {
+              name: this.name,
+              tel: this.phone,
+              date: this.dates,
+            },
+            (res) => {
               this.$emit("setSuccess", res.data.success);
               this.$emit("setBooking", res.data.booking);
-            })
-            .catch((err) => {
+            },
+            (err) => {
               this.errMsg = err.response.data.message;
-            });
+            },
+        );
       }
     },
     dateDiff(startDate, endDate) {
