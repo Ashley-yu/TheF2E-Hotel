@@ -100,6 +100,9 @@ export default {
       return holiday;
     },
   },
+  beforeDestroy() {
+    localStorage.clear();
+  }
 }
 </script>
 

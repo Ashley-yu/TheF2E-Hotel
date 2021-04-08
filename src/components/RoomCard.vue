@@ -73,7 +73,8 @@ export default {
   }),
   methods: {
     gotoReservation() {
-      this.$router.push({ name: "Reservation", params: { room: this.room }});
+      localStorage.setItem('room', JSON.stringify(this.room));
+      this.$router.push('/reservation');
     },
     getRoomData() {
       this.$http({

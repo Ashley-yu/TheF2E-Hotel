@@ -8,7 +8,7 @@
       <v-img :src="imageUrl[2]" max-height="214"></v-img>
     </v-col>
     <h2 class="font-rage reservation-title">
-      Single Room
+      {{ name }}
     </h2>
   </v-row>
 </template>

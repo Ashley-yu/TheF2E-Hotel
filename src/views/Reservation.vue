@@ -29,8 +29,8 @@ import SuccessCard from "../components/SuccessCard";
 
 export default {
   name: "Reservation",
-  props: ["room"],
   data: () => ({
+    room: {},
     isSuccess: false,
     bookingData: {},
   }),
@@ -50,6 +50,13 @@ export default {
     SuccessCard,
     Footer
   },
+  created() {
+    this.room = JSON.parse(localStorage.getItem('room')) || {};
+
+    if (Object.keys(this.room).length === 0) {
+      this.$router.push('/');
+    }
+  }
 }
 </script>
 
