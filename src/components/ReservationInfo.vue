@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-4 mx-sm-9 reservation-info">
-    <h3 class="mb-7 font-size-xl reservation-subtitle">
+  <div class="mx-4 mx-sm-9 reservation-info" :class="{'mb-0': checkinSwitch}">
+    <h3 class="mb-7 font-size-xl reservation-subtitle" :class="{'mt-1': checkinSwitch}">
       預約房間:
       <br>
       {{ room.name }}
@@ -26,7 +26,7 @@
     <div class="secondary primary-color font-weight-bold text-center py-3 px-15 mb-8">
       {{ roomAmenities }}
     </div>
-    <div class="mx-6 mx-md-12 d-flex justify-space-between">
+    <div class="mx-6 mx-md-12 d-flex justify-space-between" v-if="!checkinSwitch">
       <ul class="pa-0">
         <li>
           <div class="font-size-xs">checkIn 時間</div>
@@ -59,6 +59,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    checkinSwitch: {
+      type: Boolean,
+      default: false,
+    }
   },
   computed: {
     roomContent() {

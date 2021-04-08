@@ -37,6 +37,35 @@
         </v-date-picker>
       </v-menu>
     </div>
+    <div v-if="dates[0] && dates[1]" class="mt-4">
+      <ul class="pa-0 border-bottom reservation-list mb-4">
+        <li class="d-flex justify-space-between mb-4">
+          <v-row class="justify-space-between">
+            <v-col cols="4">
+              <p class="ma-0 primary-dark-color">平日(一~四)</p>
+            </v-col>
+            <v-col cols="4">
+              <p class="ma-0 primary-dark-color">${{ room.normalDayPrice }} x {{ normalDayNum }} 晚</p>
+            </v-col>
+            <v-col cols="4">
+              <p class="ma-0 font-weight-bold text-right">${{ room.normalDayPrice * normalDayNum }}</p>
+            </v-col>
+            <v-col cols="4">
+              <p class="ma-0 primary-dark-color">假日(五~日)</p>
+            </v-col>
+            <v-col cols="4">
+              <p class="ma-0 primary-dark-color">${{ room.holidayPrice }} x {{ holidayNum }} 晚</p>
+            </v-col>
+            <v-col cols="4">
+              <p class="ma-0 font-weight-bold text-right">${{ room.holidayPrice * holidayNum }}</p>
+            </v-col>
+          </v-row>
+        </li>
+      </ul>
+      <p class="ma-0 text-right font-size-lg font-weight-bold mb-4">
+        ${{ normalDayNum * room.normalDayPrice + holidayNum * room.holidayPrice }}
+      </p>
+    </div>
     <div>
       <p class="mb-2">姓名</p>
       <v-text-field
@@ -87,10 +116,10 @@
 export default {
   name: "ReservationCard",
   props: {
-    roomId: {
-      type: String,
-      default: '',
-    }
+    room: {
+      type: Object,
+      default: () => {},
+    },
   },
   data: () => ({
     dates: [],
@@ -101,6 +130,10 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
+        if (this.dates[0] > this.dates[1]) {
+          this.dates.reverse();
+        }
+
         this.$http({
           method: "POST",
           headers: {
@@ -108,7 +141,7 @@ export default {
             Authorization: "Bearer HMUCvgjAVLxEmkUVN4mrwkiSXMalQyUxVc5umVG8TJAXxw3GazyzLd19XaGn",
             "Content-Type": "application/json",
           },
-          url: `https://challenge.thef2e.com/api/thef2e2019/stage6/room/${this.roomId}`,
+          url: `https://challenge.thef2e.com/api/thef2e2019/stage6/room/${this.room.id}`,
           data: JSON.stringify({
             name: this.name,
             tel: this.phone,
@@ -116,12 +149,16 @@ export default {
           }),
         })
             .then((res) => {
-              console.log(res);
+              this.$emit("setSuccess", res.data.success);
+              this.$emit("setBooking", res.data.booking);
             })
             .catch((err) => {
               this.errMsg = err.response.data.message;
             });
       }
+    },
+    dateDiff(startDate, endDate) {
+      return Math.abs(new Date(startDate) - new Date(endDate)) / 1000 / 60 / 60 / 24;
     },
   },
   computed: {
@@ -147,6 +184,38 @@ export default {
       }
 
       return str;
+    },
+    normalDayNum() {
+      let sDate = this.dates[0];
+      let eDate = this.dates[1];
+      if (this.dates[0] > this.dates[1]) {
+        sDate = this.dates[1];
+        eDate = this.dates[0];
+      }
+      const days = this.dateDiff(sDate,eDate);
+      let normalDay = 0;
+      for(let i = 0; i<days; i++) {
+        if ([1, 2, 3, 4].indexOf(new Date(new Date(sDate).setDate(new Date(sDate).getDate()+i)).getDay()) > -1) {
+          normalDay+=1;
+        }
+      }
+      return normalDay;
+    },
+    holidayNum() {
+      let sDate = this.dates[0];
+      let eDate = this.dates[1];
+      if (this.dates[0] > this.dates[1]) {
+        sDate = this.dates[1];
+        eDate = this.dates[0];
+      }
+      const days = this.dateDiff(sDate,eDate);
+      let holiday = 0;
+      for(let i = 0; i<days; i++) {
+        if ([0, 6, 5].indexOf(new Date(new Date(sDate).setDate(new Date(sDate).getDate()+i)).getDay()) > -1) {
+          holiday+=1;
+        }
+      }
+      return holiday;
     },
   },
 }

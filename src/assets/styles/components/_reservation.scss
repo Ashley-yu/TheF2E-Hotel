@@ -30,6 +30,10 @@
     }
   }
 
+  &-list {
+    border-color: $primary-light;
+  }
+
   &-confirm {
     .v-btn__content {
       font-size: 20px;
