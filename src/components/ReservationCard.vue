@@ -76,21 +76,33 @@
           height="55px"
           v-model="name"
           required
-          :rules="[(v) => !!v || '姓名欄位必填']"
+          :rules="[(v) => !!v || '姓名欄位 為必填']"
       ></v-text-field>
     </div>
     <div>
       <p class="mb-2">電話</p>
-      <v-text-field
-          outlined
-          dense
-          color="#A5bb94"
-          background-color="#FFFFFF"
-          height="55px"
-          v-model="phone"
-          required
-          :rules="[(v) => !!v || '電話欄位必填']"
-      ></v-text-field>
+      <validation-provider
+          v-slot="{ errors }"
+          name="電話欄位"
+          :rules="{
+            min: 10,
+            required: true,
+            digits: 10,
+            regex: '^09[0-9]{8}$'
+          }"
+      >
+        <v-text-field
+            outlined
+            dense
+            color="#A5bb94"
+            background-color="#FFFFFF"
+            height="55px"
+            v-model="phone"
+            required
+            :counter="10"
+            :error-messages="errors"
+        ></v-text-field>
+      </validation-provider>
     </div>
     <v-alert v-if="errMsg"
              dense
