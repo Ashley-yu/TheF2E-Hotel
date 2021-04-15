@@ -84,7 +84,11 @@ export default {
             this.loading = false;
           },
           (err) => {
-            console.log(err);
+            if (err.response) {
+              this.$snackbar.error(err.response.data.message);
+            } else {
+              this.$snackbar.error(err);
+            }
           },
       );
     },

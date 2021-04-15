@@ -31,7 +31,11 @@ export default {
             this.items = res.data.items;
           },
           (err) => {
-            console.log(err);
+            if (err.response) {
+              this.$snackbar.error(err.response.data.message);
+            } else {
+              this.$snackbar.error(err);
+            }
           },
       );
     }
